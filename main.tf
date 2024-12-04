@@ -1,3 +1,14 @@
+terraform {
+  backend "s3" {
+    bucket         = "portfolioweb-terraform-state" # Replace with your bucket name
+    key            = "terraform/terraform.tfstate"    # Replace with a custom path
+    region         = "us-west-2"                      # Replace with your bucket region
+    dynamodb_table = "Portfolioweb-terraform-state" # Replace with your DynamoDB table name
+    encrypt        = true                             # Enable encryption for added security
+  }
+}
+
+
 # Security Group Configuration for portfolio and RDS instances
 resource "aws_security_group" "portfolio_sg" {
   name_prefix = "portfolio-sg"
