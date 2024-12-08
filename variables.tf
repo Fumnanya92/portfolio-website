@@ -43,7 +43,7 @@ variable "availability_zone_1" {
 variable "availability_zone_2" {
   description = "Second availability zone"
   type        = string
-  default     = "us-west-2b"
+default     = "us-west-2b"
 }
 
 
@@ -52,3 +52,22 @@ variable "allowed_cidr_blocks" {
   type        = list(string)
   default     = ["0.0.0.0/0"]
 }
+
+variable "bucket_name" {
+  description = "The name of the S3 bucket"
+  type        = string
+  default     = "portfolio-app-bucket"
+}
+
+variable "versioning_enabled" {
+  description = "Enable versioning for the S3 bucket"
+  type        = bool
+  default     = true
+}
+
+variable "force_destroy" {
+  description = "Forcefully destroy the bucket (deletes all objects)"
+  type        = bool
+  default     = false
+}
+

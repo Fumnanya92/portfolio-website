@@ -1,10 +1,10 @@
 terraform {
   backend "s3" {
     bucket         = "portfolioweb-terraform-state" # Replace with your bucket name
-    key            = "terraform/terraform.tfstate"    # Replace with a custom path
-    region         = "us-west-2"                      # Replace with your bucket region
+    key            = "terraform/terraform.tfstate"  # Replace with a custom path
+    region         = "us-west-2"                    # Replace with your bucket region
     dynamodb_table = "Portfolioweb-terraform-state" # Replace with your DynamoDB table name
-    encrypt        = true                             # Enable encryption for added security
+    encrypt        = true                           # Enable encryption for added security
   }
 }
 
@@ -73,3 +73,14 @@ module "ec2" {
   security_group_id = aws_security_group.portfolio_sg.id # Passing SG to module
   public_subnets    = module.vpc.public_subnet_ids       # Pass subnets here
 }
+
+
+module "s3" {
+  source             = "./modules/s3"
+  bucket_name        = var.bucket_name
+  versioning_enabled = var.versioning_enabled
+  force_destroy      = var.force_destroy
+  allowed_cidr_blocks = var.allowed_cidr_blocks
+}
+
+
