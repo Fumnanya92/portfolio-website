@@ -43,7 +43,7 @@ variable "availability_zone_1" {
 variable "availability_zone_2" {
   description = "Second availability zone"
   type        = string
-default     = "us-west-2b"
+  default     = "us-west-2b"
 }
 
 
@@ -56,7 +56,6 @@ variable "allowed_cidr_blocks" {
 variable "bucket_name" {
   description = "The name of the S3 bucket"
   type        = string
-  default     = "portfolio-app-bucket"
 }
 
 variable "versioning_enabled" {

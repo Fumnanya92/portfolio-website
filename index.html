@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fumnanya - Portfolio</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0">
+          <h1 class="text-2xl font-bold text-gray-900">Chukwufumnanya Kelvin Okonkwo</h1>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#home" class="text-gray-700 hover:text-gray-900">Home</a>
+          <a href="#about" class="text-gray-700 hover:text-gray-900">About</a>
+          <a href="#projects" class="text-gray-700 hover:text-gray-900">Projects</a>
+          <a href="#contact" class="text-gray-700 hover:text-gray-900">Contact</a>
+        </nav>
+
+        <!-- Social Links -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="https://github.com/Fumnanya92" class="text-gray-500 hover:text-gray-700">
+            <i data-lucide="github" class="w-5 h-5"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/chukwufumnanyaokonkwo" class="text-gray-500 hover:text-gray-700">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+          </a>
+          <a href="mailto:fumnanya541@gmail.com" class="text-gray-500 hover:text-gray-700">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button
+            id="mobile-menu-button"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-gray-900">Home</a>
+        <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-gray-900">About</a>
+        <a href="#projects" class="block px-3 py-2 text-gray-700 hover:text-gray-900">Projects</a>
+        <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-gray-900">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-gray-50 to-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="text-5xl font-bold text-gray-900 mb-6">
+              Hi, I'm Fumnanya
+              <span class="block text-indigo-600">DevOps Engineer</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8">
+              I'm passionate about cloud automation, CI/CD, and creating scalable, reliable infrastructures. Let's collaborate to bring innovative solutions to life.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#projects"
+                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+              >
+                View Projects
+                <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+              </a>
+              <a
+                href="#contact"
+                class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
+          <div class="relative">
+            <img
+              src="https://images.unsplash.com/photo-1517849845537-4d257902454a"
+              alt="Profile"
+              class="rounded-lg shadow-2xl"
+            />
+            <div class="absolute -bottom-4 -right-4 w-72 h-72 bg-indigo-100 rounded-full -z-10"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            I'm a DevOps Engineer with expertise in AWS, Terraform, CI/CD pipelines, and cloud automation, building scalable solutions for high-performance systems.
+          </p>
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-6 bg-gray-50 rounded-lg hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 mb-4">
+              <i data-lucide="code" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Cloud Automation</h3>
+            <p class="text-gray-600">Terraform, AWS, Docker</p>
+          </div>
+
+          <div class="p-6 bg-gray-50 rounded-lg hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 mb-4">
+              <i data-lucide="globe" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Infrastructure Management</h3>
+            <p class="text-gray-600">AWS EC2, RDS, Lambda, VPC</p>
+          </div>
+
+          <div class="p-6 bg-gray-50 rounded-lg hover:shadow-lg transition-shadow duration-300">
+            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 mb-4">
+              <i data-lucide="palette" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">CI/CD Pipelines</h3>
+            <p class="text-gray-600">Jenkins, GitHub Actions, CircleCI</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">My Projects</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Here are some of my recent projects that showcase my skills and expertise.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <img
+              src="https://images.unsplash.com/photo-1557821552-17105176677c"
+              alt="E-commerce Platform"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">E-commerce Platform</h3>
+              <p class="text-gray-600 mb-4">A full-stack e-commerce solution with React and Node.js</p>
+              <div class="flex space-x-4">
+                <a
+                  href="https://github.com/Fumnanya92/E-commerce-platform"
+                  class="inline-flex items-center text-gray-600 hover:text-gray-900"
+                >
+                  <i data-lucide="github" class="w-5 h-5 mr-2"></i>
+                  Code
+                </a>
+                <a
+                  href="https://example.com"
+                  class="inline-flex items-center text-indigo-600 hover:text-indigo-700"
+                >
+                  <i data-lucide="external-link" class="w-5 h-5 mr-2"></i>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <img
+              src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d"
+              alt="Task Management App"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Fintech Infrastructure</h3>
+              <p class="text-gray-600 mb-4">Real-time payment systems and digital wallet solutions built on scalable cloud infrastructure.</p>
+              <div class="flex space-x-4">
+                <a
+                  href="https://github.com/Fumnanya92/fintech-infrastructure"
+                  class="inline-flex items-center text-gray-600 hover:text-gray-900"
+                >
+                  <i data-lucide="github" class="w-5 h-5 mr-2"></i>
+                  Code
+                </a>
+                <a
+                  href="https://example.com"
+                  class="inline-flex items-center text-indigo-600 hover:text-indigo-700"
+                >
+                  <i data-lucide="external-link" class="w-5 h-5 mr-2"></i>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
+              alt="Portfolio Website"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Automated WordPress Deployment</h3>
+              <p class="text-gray-600 mb-4">Automating the deployment of WordPress on AWS with Terraform for scalability and efficiency.</p>
+              <div class="flex space-x-4">
+                <a
+                  href="https://github.com/Fumnanya92/automated-wordpress-deployment"
+                  class="inline-flex items-center text-gray-600 hover:text-gray-900"
+                >
+                  <i data-lucide="github" class="w-5 h-5 mr-2"></i>
+                  Code
+                </a>
+                <a
+                  href="https://github.com/Fumnanya92"
+                  class="inline-flex items-center text-indigo-600 hover:text-indigo-700"
+                >
+                  <i data-lucide="external-link" class="w-5 h-5 mr-2"></i>
+                  Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Have a project in mind? Let's work together to create something amazing.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <div class="space-y-8">
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  <i data-lucide="mail" class="w-6 h-6 text-indigo-600"></i>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg font-medium text-gray-900">Email</h3>
+                  <p class="text-gray-600">fumnanya541@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  <i data-lucide="phone" class="w-6 h-6 text-indigo-600"></i>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg font-medium text-gray-900">Phone</h3>
+                  <p class="text-gray-600">+234 816 732 2603</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  <i data-lucide="map-pin" class="w-6 h-6 text-indigo-600"></i>
+                </div>
+                <div class="ml-4">
+                  <h3 class="text-lg font-medium text-gray-900">Location</h3>
+                  <p class="text-gray-600">Lagos, Nigeria</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form id="contact-form" class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700">
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows="4"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-indigo-600 text-white py-3 px-6 rounded-md hover:bg-indigo-700 transition-colors duration-300"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Chukwufumnanya Kelvin Okonkwo</h3>
+          <p class="text-gray-400">
+            Full Stack Developer passionate about creating beautiful and functional web applications.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+            <li><a href="#projects" class="text-gray-400 hover:text-white">Projects</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Connect</h4>
+          <div class="flex space-x-4">
+            <a href="https://github.com/Fumnanya92" class="text-gray-400 hover:text-white">
+              <i data-lucide="github" class="w-6 h-6"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/chukwufumnanyaokonkwo" class="text-gray-400 hover:text-white">
+              <i data-lucide="linkedin" class="w-6 h-6"></i>
+            </a>
+            <a href="mailto:fumnanya541@gmail.com" class="text-gray-400 hover:text-white">
+              <i data-lucide="mail" class="w-6 h-6"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+        <p class="text-gray-400">
+          © <span id="current-year"></span> Chukwufumnanya Kelvin Okonkwo. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let isMenuOpen = false;
+
+    mobileMenuButton.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuButton.querySelector('i');
+      icon.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
+      lucide.createIcons();
+    });
+
+    // Contact form handling
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      };
+      console.log('Form submitted:', formData);
+      // Add your form submission logic here
+      contactForm.reset();
+    });
+
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+          // Close mobile menu if open
+          if (isMenuOpen) {
+            isMenuOpen = false;
+            mobileMenu.classList.add('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

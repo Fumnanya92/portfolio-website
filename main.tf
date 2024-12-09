@@ -8,7 +8,6 @@ terraform {
   }
 }
 
-
 # Security Group Configuration for portfolio and RDS instances
 resource "aws_security_group" "portfolio_sg" {
   name_prefix = "portfolio-sg"
@@ -31,7 +30,6 @@ resource "aws_security_group" "portfolio_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-
   # SSH (22) - Allow access dynamically from EC2 instance IP
   ingress {
     from_port   = 22
@@ -48,8 +46,6 @@ resource "aws_security_group" "portfolio_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-
 
 # VPC Module Configuration
 module "vpc" {
@@ -72,15 +68,30 @@ module "ec2" {
   vpc_id            = module.vpc.vpc_id
   security_group_id = aws_security_group.portfolio_sg.id # Passing SG to module
   public_subnets    = module.vpc.public_subnet_ids       # Pass subnets here
+  portfolio_tg_arn  = module.alb.portfolio_tg_arn
 }
 
-
+# S3 Module Configuration
 module "s3" {
-  source             = "./modules/s3"
-  bucket_name        = var.bucket_name
-  versioning_enabled = var.versioning_enabled
-  force_destroy      = var.force_destroy
-  allowed_cidr_blocks = var.allowed_cidr_blocks
+  source                = "./modules/s3"
+  bucket_name           = var.bucket_name
+  versioning_enabled    = var.versioning_enabled
+  force_destroy         = var.force_destroy
+  allowed_cidr_blocks   = var.allowed_cidr_blocks
+  check_existing_bucket = true
 }
 
+# Upload Portfolio Script to S3
+resource "aws_s3_object" "portfolio_script" {
+  bucket       = module.s3.bucket_name
+  key          = "index.html" # Specify the key in the bucket
+  source       = "${path.module}/index.html"
+  content_type = "text/html" # Static type for index.html
+}
 
+# ALB Module Configuration
+module "alb" {
+  source         = "./modules/alb"
+  vpc_id         = module.vpc.vpc_id
+  public_subnets = module.vpc.public_subnet_ids
+}

@@ -26,3 +26,8 @@ variable "public_subnets" {
   description = "List of public subnet IDs for Auto Scaling Group"
   type        = list(string)
 }
+
+variable "portfolio_tg_arn" {
+  description = "ARN of the target group for portfolio instances"
+  type        = string
+}
