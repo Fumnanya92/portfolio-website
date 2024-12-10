@@ -67,6 +67,13 @@ resource "aws_s3_object" "portfolio_script" {
   content_type = "text/html" # Static type for index.html
 }
 
+resource "aws_s3_object" "portfolio_image" {
+  bucket       = module.s3.bucket_name
+  key          = "portfolio_img.png" # Specify the key in the bucket
+  source       = "${path.module}/portfolio_img.png"
+  content_type = "image/png" # Static type for portfolio_img.png
+}
+
 
 
 module "route53" {
