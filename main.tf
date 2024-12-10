@@ -12,7 +12,7 @@ terraform {
 resource "aws_security_group" "portfolio_sg" {
   name_prefix = "portfolio-sg"
   description = "Security group for portfolio "
-  vpc_id      = module.vpc.vpc_id
+  vpc_id      = var.default_vpc
 
   # HTTP (80) - Allow for web access
   ingress {
@@ -70,10 +70,10 @@ resource "aws_s3_object" "portfolio_script" {
 
 
 module "route53" {
-  source               = "./modules/route53"
-  domain_name          = "workfoliowave.xyz"
-  zone_id              = module.route53.zone_id  # Pass zone_id from the module
-  s3_website_endpoint = module.s3.bucket_website_endpoint  # Pass website endpoint from the S3 module
+  source              = "./modules/route53"
+  domain_name         = "workfoliowave.xyz"
+  zone_id             = module.route53.zone_id            # Pass zone_id from the module
+  s3_website_endpoint = module.s3.bucket_website_endpoint # Pass website endpoint from the S3 module
 }
 
 
