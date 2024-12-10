@@ -6,17 +6,17 @@ resource "random_string" "suffix" {
 }
 
 # Use a unique bucket name by appending a random suffix
-locals {
-  unique_bucket_name = "${var.bucket_name}-${random_string.suffix.result}"
-}
+#locals {
+#  unique_bucket_name = "${var.bucket_name}-${random_string.suffix.result}"
+#}
 
 # Create the bucket
 resource "aws_s3_bucket" "portfolio_bucket" {
-  bucket        = local.unique_bucket_name
+  bucket        = var.bucket_name                                    #local.unique_bucket_name
   force_destroy = var.force_destroy
 
   tags = {
-    Name        = local.unique_bucket_name
+    Name        = var.bucket_name #local.unique_bucket_name
     Environment = "Portfolio"
   }
 }

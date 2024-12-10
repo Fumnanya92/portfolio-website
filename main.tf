@@ -8,10 +8,10 @@ terraform {
   }
 }
 
-# Security Group Configuration for portfolio and RDS instances
+# Security Group Configuration for portfolio 
 resource "aws_security_group" "portfolio_sg" {
   name_prefix = "portfolio-sg"
-  description = "Security group for portfolio and RDS instances"
+  description = "Security group for portfolio "
   vpc_id      = module.vpc.vpc_id
 
   # HTTP (80) - Allow for web access
@@ -47,29 +47,7 @@ resource "aws_security_group" "portfolio_sg" {
   }
 }
 
-# VPC Module Configuration
-module "vpc" {
-  source = "./modules/vpc"
 
-  aws_region            = var.aws_region
-  vpc_cidr              = var.vpc_cidr
-  public_subnet_1_cidr  = var.public_subnet_1_cidr
-  public_subnet_2_cidr  = var.public_subnet_2_cidr
-  private_subnet_1_cidr = var.private_subnet_1_cidr
-  private_subnet_2_cidr = var.private_subnet_2_cidr
-  availability_zone_1   = var.availability_zone_1
-  availability_zone_2   = var.availability_zone_2
-}
-
-# EC2 Module Configuration
-module "ec2" {
-  source            = "./modules/ec2"
-  subnet_id         = module.vpc.public_subnet_1_id # Use public subnet 1 for EC2
-  vpc_id            = module.vpc.vpc_id
-  security_group_id = aws_security_group.portfolio_sg.id # Passing SG to module
-  public_subnets    = module.vpc.public_subnet_ids       # Pass subnets here
-  portfolio_tg_arn  = module.alb.portfolio_tg_arn
-}
 
 # S3 Module Configuration
 module "s3" {
@@ -89,9 +67,13 @@ resource "aws_s3_object" "portfolio_script" {
   content_type = "text/html" # Static type for index.html
 }
 
-# ALB Module Configuration
-module "alb" {
-  source         = "./modules/alb"
-  vpc_id         = module.vpc.vpc_id
-  public_subnets = module.vpc.public_subnet_ids
+
+
+module "route53" {
+  source               = "./modules/route53"
+  domain_name          = "workfoliowave.xyz"
+  zone_id              = module.route53.zone_id  # Pass zone_id from the module
+  s3_website_endpoint = module.s3.bucket_website_endpoint  # Pass website endpoint from the S3 module
 }
+
+
